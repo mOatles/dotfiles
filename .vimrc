@@ -1,4 +1,16 @@
-execute pathogen#infect()
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Bundle 'flazz/vim-colorschemes'
+
+call vundle#end()
+filetype plugin indent on
+
 set t_Co=256
 syntax on
 filetype plugin indent on
