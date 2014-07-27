@@ -6,21 +6,30 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
-Bundle 'flazz/vim-colorschemes'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'tikhomirov/vim-glsl'
+Plugin 'wting/rust.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'elzr/vim-json'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 filetype plugin indent on
 
 set t_Co=256
 syntax on
-filetype plugin indent on
 set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
-au BufNewFile,BufRead *.cpp set syntax=cpp11
 
 " Highlight matches when jumping to next
 set hlsearch
 
 nnoremap ; :
+
+" execute active file
+nnoremap <F9> :!%:p<CR><CR>
 
 set number
 set autoindent
@@ -29,4 +38,10 @@ set nowrap
 color devbox-dark-256
 
 highlight LineNr ctermbg=233 ctermfg=245
+highlight Normal ctermbg=232
 highlight clear SignColumn
+
+set wildignore+=*.mp3,*/build/*,*.o,*.blend*,*.cym,*/node_modules/*,*/static/*
+
+" no splash
+set shortmess+=I
