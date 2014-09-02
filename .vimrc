@@ -15,6 +15,9 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mxw/vim-jsx'
+Plugin 'mtscout6/vim-cjsx'
+Plugin 'fatih/vim-go'
+Plugin 'evanmiller/nginx-vim-syntax'
 
 call vundle#end()
 filetype plugin indent on
@@ -45,3 +48,8 @@ set wildignore+=*.mp3,*/build/*,*.o,*.blend*,*.cym,*/node_modules/*,*/static/*
 
 " no splash
 set shortmess+=I
+
+" keep your stupid shit out of my shit
+"set backupdir=~/.vim/backup//
+"set directory=~/.vim/swap//
+"set undodir=~/.vim/undo//
