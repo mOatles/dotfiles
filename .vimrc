@@ -10,6 +10,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-scripts/vis'
 Plugin 'danro/rename.vim'
+Plugin 'godlygeek/csapprox'
 
 " Languages
 Plugin 'mtscout6/vim-cjsx'
@@ -23,7 +24,11 @@ Plugin 'mxw/vim-jsx'
 Plugin 'moatles/vim-lish'
 Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'peterhoeg/vim-qml'
-Plugin 'wting/rust.vim'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'groenewege/vim-less'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'rust-lang/rust.vim'
+Plugin 'cespare/vim-toml'
 
 call vundle#end()
 filetype plugin indent on
@@ -40,8 +45,7 @@ nnoremap ; :
 nnoremap <F9> :!%:p<CR><CR>
 " formatting
 nnoremap <C-S-f> :%!astyle -s2 -A3<CR><CR>
-" copy into x clipboard FIXME: grabs full line instead of selection.
-vnoremap <C-S-c> :w !xclip -se c<CR><CR>
+nnoremap <C-S-d> :!make<CR>
 
 set number
 set autoindent
@@ -49,17 +53,22 @@ set nowrap
 
 " coloring
 set t_Co=256
-color devbox-dark-256
-highlight LineNr ctermbg=233 ctermfg=245
+color colorful256
 highlight Normal ctermbg=232
+highlight LineNr ctermbg=235 ctermfg=245
 highlight clear SignColumn
 
+" Sane C-p
 set wildignore+=*.mp3,*/build/*,*.o,*.blend*,*.cym,*/node_modules/*,*/static/*
 
 set shortmess+=I " disable splash
 
 " language specific stuff
-au BufReadPost *.es6 set syntax=javascript " es6 === javascript
+let g:rust_recommended_style = 0
+au BufReadPost *.es6 set syntax=javascript
+au BufReadPost *.mst set syntax=mustache
+au BufReadPost *.md set syntax=markdown " im not going to use modula 2, sooo...
+syn keyword cTodo contained TODO FIXME XXX HACK NOTE
 
 " :git command, 'cause I can.
 :com! -nargs=* Git !git <args>
